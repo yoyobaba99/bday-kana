@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday Kana 🎉</title>
+
+<style>
+    body{
+        margin:0;
+        background:#000;
+        font-family: 'Poppins', sans-serif;
+        overflow-x:hidden;
+        color:white;
+        text-align:center;
+    }
+
+    .hero{
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(45deg,#ff00c8,#6800ff);
+        animation:bgShift 6s infinite alternate;
+    }
+
+    @keyframes bgShift{
+        0%{background:linear-gradient(45deg,#ff00c8,#6800ff);}
+        100%{background:linear-gradient(45deg,#ff8a00,#ff0059);}
+    }
+
+    h1{
+        font-size:45px;
+        animation:pop 1.3s ease-out;
+    }
+
+    @keyframes pop{
+        0%{transform:scale(0);}
+        100%{transform:scale(1);}
+    }
+
+    .msgBox{
+        width:85%;
+        margin:20px auto;
+        padding:20px;
+        border-radius:20px;
+        background:rgba(255,255,255,0.12);
+        backdrop-filter:blur(6px);
+        animation:fadeIn 1.3s ease-out;
+    }
+
+    @keyframes fadeIn{
+        from{opacity:0;transform:translateY(40px);}
+        to{opacity:1;transform:translateY(0);}
+    }
+
+    button{
+        padding:12px 25px;
+        border:none;
+        border-radius:30px;
+        background:#ff008c;
+        color:white;
+        font-size:18px;
+        margin-top:20px;
+        cursor:pointer;
+        transition:.3s;
+    }
+    button:hover{
+        transform:scale(1.1);
+        background:#ff00c3;
+    }
+
+    #ss{
+        margin-top:30px;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>🎉 Happy Birthday Kana ❤️</h1>
+    <p>Special Premium Animation Website Gift</p>
+
+    <button onclick="showMsg()">Click to Open Surprise 💗</button>
+</div>
+
+<div id="content" style="display:none;">
+    <div class="msgBox">
+        <h2>💖 Dear Kana</h2>
+        <p>
+            Today is your day, your smile is the reason of happiness.  
+            Wishing you the most beautiful year filled with love, joy, 
+            success and everything you deserve.
+        </p>
+    </div>
+
+    <div class="msgBox">
+        <h2>🎂 Your Birthday Special</h2>
+        <p>
+            May all your dreams come true,  
+            May your life shine brighter than ever,  
+            And may this small gift bring a smile on your face.
+        </p>
+    </div>
+
+    <button id="ss" onclick="takeSS()">📸 Take Screenshot</button>
+</div>
+
+<script>
+function showMsg(){
+    document.querySelector('.hero').style.display="none";
+    document.querySelector('#content').style.display="block";
+}
+
+// Screenshot system
+function takeSS(){
+    html2canvas(document.body).then(canvas=>{
+        let link=document.createElement("a");
+        link.download="kana_birthday.png";
+        link.href=canvas.toDataURL();
+        link.click();
+    });
+}
+</script>
+
+<!-- html2canvas screenshot library -->
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</body>
+</html>
